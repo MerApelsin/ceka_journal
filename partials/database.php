@@ -1,6 +1,6 @@
 <?php 
 $db = new PDO(
-    "mysql:host=localhost:8889;dbname=journal;charset=utf8", //source
+    "mysql:host=localhost:8888;dbname=journal;charset=utf8", //source
     "root",   //username
     "root",   //password
     [
