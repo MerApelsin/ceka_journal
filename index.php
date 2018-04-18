@@ -1,25 +1,30 @@
 
-<?php 
+<?php
+require_once 'partials\session_start.php';
+
 if (isset($_GET["message"])) {
     echo $_GET["message"];
 }
-?>
 
+if (!isset($_SESSION["loggedIn"])): ?>
 <h4>Register user</h4><br>
-
 <form action="partials\register_user.php" method="POST">
 Username: <input type="text" name="username" label="username">
-Password: <input type="text" name="password" labbel="password">
+Password: <input type="password" name="password" labbel="password">
 <input type="submit" value="Register">
 </form><br>
 
 <h4>Login</h4><br>
-<form action="" method="POST">
+<form action="partials\login.php" method="POST">
 Username: <input type="text" name="username" label="username">
 Password: <input type="password" name="password" labbel="password">
+<input type="submit" value="Login">
 </form>
+<?php 
 
-<h4>Get users</h4><br>
-<form action="partials\test.php" method="POST">
-<input type="submit" value="get users">
+else: ?>
+<form action="partials\logout.php" method="POST">
+<input type="submit" value="Log out">
 </form>
+<?php endif; ?>
+

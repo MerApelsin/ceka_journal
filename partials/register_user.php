@@ -1,23 +1,36 @@
 <?php 
-//header('Location: /index.php?message=register_complete');
-
 require_once 'database.php';
+require_once 'session_start.php';
 
-$username = $_POST["username"];
-var_dump($username);
-//Hashing password
 $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-echo $password;
 
-$statement = $db->prepare(
-  'INSERT INTO users (username, password)
-  VALUES (:username, :password)'
+//this is to check if there is already a user with that name in the database
+$userExist = $db->prepare(
+  "SELECT * FROM users 
+  WHERE username = :username"
 );
-$statement->execute([
-  ":username" => $username,
-  ":password" => $password
+$userExist->execute([
+  "username" => $_POST["username"]
 ]);
+$user = $userExist->fetch();
 
-
+//if user don't exist - create
+if($user == 0) 
+{
+  header('Location: \index.php?message=register complete');
+  $statement = $db->prepare(
+    'INSERT INTO users (username, password)
+    VALUES (:username, :password)'
+  );
+  $statement->execute([
+    ":username" => $_POST["username"],
+    ":password" => $password
+  ]);
+}
+//else give "error"
+else 
+{
+  header('Location: \index.php?message=user already exists');
+}
 
 ?>
