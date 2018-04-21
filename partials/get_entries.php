@@ -1,6 +1,7 @@
 <?php 
     require_once 'database.php';
     require_once 'session_start.php';
+    require_once 'session_timer.php';
 ?>
 
 <html>
@@ -21,30 +22,41 @@
         <?php
         $statement = $db->prepare(
             "SELECT * FROM entries
-            WHERE userID = :id"
+            WHERE userID = :id
+            ORDER BY createdAt DESC"
         );
         $statement->execute([
             "id" => $_SESSION["thisID"]
         ]);
         $posts = $statement->fetchAll();
-            //<?php echo $post["title"] . " <br>" . $post["content"];
-        foreach ($posts as $post)
+        //checks if the user has any posts, if not - display no post - else loop through them
+        if(empty($posts))
         {
             ?>
             <article>
-                <div class="entry-post">
-                    <h2 class="title"><?= $post["title"] ?></h2>
-                    <h4 class="time"><?= $post["createdAt"] ?></h4>
-                    <p class=content><?= $post["content"] ?></p>
-                </div>
-                <div class="post-menu">
-                    <ul>
-                        <li><a href="/partials/text_handler.php?status=edit&postID=<?= $post["entryID"] ?>">Edit post</a></li>
-                        <li><a href="/partials/delete_post.php?deleteID=<?= $post["entryID"] ?>">Delete post</a></li>
-                    </ul>
-                </div>
+                <h2>No post found, let's start writing one! :)</h2>
             </article>
-        <?php
+            <?php
+        }
+        else{
+            foreach ($posts as $post)
+            {
+                ?>
+                <article>
+                    <div class="entry-post">
+                        <h2 class="title"><?= $post["title"] ?></h2>
+                        <h4 class="time"><?= $post["createdAt"] ?></h4>
+                        <p class=content><?= $post["content"] ?></p>
+                    </div>
+                    <div class="post-menu">
+                        <ul>
+                            <li><a href="/partials/text_handler.php?status=edit&postID=<?= $post["entryID"] ?>">Edit post</a></li>
+                            <li><a href="/partials/delete_post.php?deleteID=<?= $post["entryID"] ?>">Delete post</a></li>
+                        </ul>
+                    </div>
+                </article>
+            <?php
+            }
         }
         ?>
     </body>

@@ -1,5 +1,7 @@
 <?php 
     require_once 'database.php';
+    require_once 'session_start.php'; //for the timer
+    require_once 'session_timer.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +22,16 @@
         //if the status is new it means the user wants to post a completely new entry
         if($status == "new"):
         ?>
-            <form action="/partials/new_entry.php" method="POST" id="textForm">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" placeholder="title">
-                <label for="content">Content</label>
-                <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"></textarea>
-                <input type="submit" value="Upload">
-            </form>
+            <main>
+                <h4>Create new post</h4>
+                <form action="/partials/new_entry.php" method="POST" id="textForm">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="title">
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"></textarea>
+                    <input type="submit" value="Upload">
+                </form>
+            </main>
         <?php
         //if not, then it's edit and means the user wants to change something from a previously made post
         //however, the time will stay the same as during creation.
@@ -43,13 +48,16 @@
             $thisPost = $statement->fetch();
             //fills the form with previous data so the user can edit it.
             ?>
+            <main>
+                <h4>Update post</h4>
                 <form action="/partials/update_entry.php?entryID=<?= $thisEntry ?>" method="POST" id="textForm">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" placeholder="title" value=<?= $thisPost["title"]?>>
-                <label for="content">Content</label>
-                <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"><?= $thisPost["content"] ?></textarea>
-                <input type="submit" value="Update">
-            </form>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="title" value=<?= $thisPost["title"]?>>
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"><?= $thisPost["content"] ?></textarea>
+                    <input type="submit" value="Update">
+                </form>
+            </main>
         <?php endif; ?>
     </body>
 </html>
