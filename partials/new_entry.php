@@ -1,6 +1,6 @@
 <?php 
     require_once 'database.php';
-    require_once 'session_start.php';
+    require_once 'session_handler.php';
 
     header('Location: /partials/get_entries.php');
 

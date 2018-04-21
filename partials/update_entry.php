@@ -1,5 +1,6 @@
 <?php
     require_once 'database.php';
+    require_once 'session_handler.php';
     
     header('Location: /partials/get_entries.php');
     //Check and fetch the ID that's supposed to be updated

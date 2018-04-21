@@ -1,5 +1,6 @@
 <?php 
     require_once 'database.php';
+    require_once 'session_handler.php';
 
     //send the user "back" to all the entries 
     header('Location: /partials/get_entries.php');

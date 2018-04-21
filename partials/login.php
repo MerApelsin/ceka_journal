@@ -1,6 +1,6 @@
 <?php 
 require_once 'database.php';
-require_once 'session_start.php';
+require_once 'session_handler.php';
 
 //get the user with the same username from database
 $checkUser = $db->prepare(

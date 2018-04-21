@@ -1,7 +1,6 @@
 <?php 
     require_once 'database.php';
-    require_once 'session_start.php'; //for the timer
-    require_once 'session_timer.php';
+    require_once 'session_handler.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +29,8 @@
                     <label for="content">Content</label>
                     <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"></textarea>
                     <input type="submit" value="Upload">
-                </form>
+                </form><br>
+                <a href="/partials/get_entries.php">Cancel</a>
             </main>
         <?php
         //if not, then it's edit and means the user wants to change something from a previously made post
@@ -57,6 +57,7 @@
                     <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"><?= $thisPost["content"] ?></textarea>
                     <input type="submit" value="Update">
                 </form>
+                <a href="/partials/get_entries.php">Cancel</a>
             </main>
         <?php endif; ?>
     </body>

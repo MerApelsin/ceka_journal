@@ -1,7 +1,6 @@
 <?php 
     require_once 'database.php';
-    require_once 'session_start.php';
-    require_once 'session_timer.php';
+    require_once 'session_handler.php';
 ?>
 
 <html>
