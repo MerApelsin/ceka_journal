@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Text editor</title>
-        <link rel="stylesheet" href="\css\style.css" type="text/css">
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
     </head>
     <body>
         <?php 
@@ -20,7 +20,7 @@
         //if the status is new it means the user wants to post a completely new entry
         if($status == "new"):
         ?>
-            <form action="\partials\new_entry.php" method="POST" id="textForm">
+            <form action="/partials/new_entry.php" method="POST" id="textForm">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" placeholder="title">
                 <label for="content">Content</label>
@@ -43,7 +43,7 @@
             $thisPost = $statement->fetch();
             //fills the form with previous data so the user can edit it.
             ?>
-                <form action="\partials\update_entry.php?entryID=<?= $thisEntry ?>" method="POST" id="textForm">
+                <form action="/partials/update_entry.php?entryID=<?= $thisEntry ?>" method="POST" id="textForm">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" placeholder="title" value=<?= $thisPost["title"]?>>
                 <label for="content">Content</label>
