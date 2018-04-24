@@ -21,16 +21,20 @@
         //if the status is new it means the user wants to post a completely new entry
         if($status == "new"):
         ?>
-            <main>
-                <h4>Create new post</h4>
-                <form action="/partials/new_entry.php" method="POST" id="textForm">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="title">
-                    <label for="content">Content</label>
-                    <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"></textarea>
-                    <input type="submit" value="Upload">
+            <main class="text-handler">
+                <div class="form-title">
+                    <h4>Create new post</h4>
+                </div><br>
+                <form action="/partials/new_entry.php" method="POST" id="textForm" class="form-container">
+                    <label for="title" class="form-title">Title</label>
+                    <input class="form-field" type="text" name="title" id="title" placeholder="title">
+                    <label for="content" class="form-title">Content</label>
+                    <textarea class="form-field" name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"></textarea>
+                    <div class="submit-container">
+                        <input class="submit-button" type="submit" value="Upload">
+                    </div>
                 </form><br>
-                <a href="/partials/get_entries.php">Cancel</a>
+                <a href="/partials/get_entries.php" class="button">Go back</a>
             </main>
         <?php
         //if not, then it's edit and means the user wants to change something from a previously made post
@@ -48,16 +52,20 @@
             $thisPost = $statement->fetch();
             //fills the form with previous data so the user can edit it.
             ?>
-            <main>
-                <h4>Update post</h4>
-                <form action="/partials/update_entry.php?entryID=<?= $thisEntry ?>" method="POST" id="textForm">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="title" value=<?= $thisPost["title"]?>>
-                    <label for="content">Content</label>
-                    <textarea name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"><?= $thisPost["content"] ?></textarea>
-                    <input type="submit" value="Update">
+            <main class="text-handler">
+                <div class="form-title">
+                    <h4>Update post</h4>
+                </div><br>
+                <form action="/partials/update_entry.php?entryID=<?= $thisEntry ?>" method="POST" id="textForm" class="form-container">
+                    <label for="title" class="form-title">Title</label>
+                    <input class="form-field" type="text" name="title" id="title" placeholder="title" value=<?= $thisPost["title"]?>>
+                    <label for="content" class="form-title">Content</label>
+                    <textarea class="form-field" name="content" id="content" maxlength="999" cols="30" rows="10" placeholder="Write here"><?= $thisPost["content"] ?></textarea>
+                    <div class="submit-container">
+                        <input class="submit-button" type="submit" value="Update">
+                    </div>
                 </form>
-                <a href="/partials/get_entries.php">Cancel</a>
+                <a href="/partials/get_entries.php" class="button">Go back</a>
             </main>
         <?php endif; ?>
     </body>

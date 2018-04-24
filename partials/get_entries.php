@@ -9,11 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="/css/style.css" type="text/css">
-        <title>Login</title>
+        <title>Your entries</title>
     </head>
     <body>
         <nav>
             <ul>
+                <li>Welcome <?=$_SESSION["username"]?>!</li>
                 <li><a href="/partials/logout.php" class="button">Log out</a></li>
                 <li><a href="/partials/text_handler.php?status=new" class="button">Create new post</a></li>
             </ul>
@@ -33,7 +34,7 @@
         {
             ?>
             <article>
-                <h2>No post found, let's start writing one! :)</h2>
+                <h2 class="post-title">No post found, let's start writing one! :)</h2>
             </article>
             <?php
         }
@@ -43,14 +44,12 @@
                 ?>
                 <article>
                     <div class="entry-post">
-                        <h2 class="title"><?= $post["title"] ?></h2>
-                        <h4 class="time"><?= $post["createdAt"] ?></h4>
-                        <p class=content><?= $post["content"] ?></p>
-                    </div>
-                    <div class="post-menu">
+                        <h2 class="post-title"><?= $post["title"] ?></h2>
+                        <h4 class="time">Created at: <?= $post["createdAt"] ?></h4>
+                        <p class="content"><?= $post["content"] ?></p>
                         <ul>
-                            <li><a href="/partials/text_handler.php?status=edit&postID=<?= $post["entryID"] ?>">Edit post</a></li>
-                            <li><a href="/partials/delete_post.php?deleteID=<?= $post["entryID"] ?>">Delete post</a></li>
+                            <li><a class="button" href="/partials/text_handler.php?status=edit&postID=<?= $post["entryID"] ?>">Edit post</a></li>
+                            <li><a class="button-del" href="/partials/delete_post.php?deleteID=<?= $post["entryID"] ?>">Delete post</a></li>
                         </ul>
                     </div>
                 </article>
