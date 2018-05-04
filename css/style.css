@@ -90,6 +90,12 @@ li
     width: auto;
 }
 
+.feedback
+{
+    color: red;
+    font-weight: bold;
+}
+
 .border
 {
     margin-top: 1rem;

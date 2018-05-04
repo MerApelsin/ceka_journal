@@ -1,11 +1,6 @@
 
 <?php
     require_once 'partials/session_start.php';
-
-    if (isset($_GET["message"])) 
-    {
-        echo $_GET["message"];
-    }
 ?>
 
 <html lang="en">
@@ -28,7 +23,7 @@
             if (!isset($_SESSION["loggedIn"])): 
         ?>
         <section class="border">
-            <form action="partials/register_user.php" method="POST" class="form-container">
+            <form action="/partials/register_user.php" method="POST" class="form-container">
                 <h4 class="form-title">Register user</h4>
                 <label for="username" class="form-title">Username</label><br>
                 <input class="form-field" type="text" name="username" id="username"><br>
@@ -40,7 +35,7 @@
             </form><br>
         </section>
         <section class="border">
-            <form action="partials/login.php" method="POST" class="form-container">
+            <form action="/partials/login.php" method="POST" class="form-container">
                 <h4 class="form-title">Login</h4>
                 <label for="username" class="form-title">Username</label><br>
                 <input class="form-field" type="text" name="username" id="username"><br>
@@ -53,7 +48,7 @@
         </section>
         <?php 
             else:
-                header('Location: partials/get_entries.php');
+                header('Location: /partials/get_entries.php');
             endif; 
         ?>
     </body>
