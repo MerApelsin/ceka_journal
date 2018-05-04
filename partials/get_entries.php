@@ -20,6 +20,7 @@
             </ul>
         </nav>
         <?php
+        //Fetch all posts from user based on ID and sort them so newest = top
         $statement = $db->prepare(
             "SELECT * FROM entries
             WHERE userID = :id
@@ -29,16 +30,18 @@
             "id" => $_SESSION["thisID"]
         ]);
         $posts = $statement->fetchAll();
+
         //checks if the user has any posts, if not - display no post - else loop through them
         if(empty($posts))
         {
             ?>
             <article>
-                <h2 class="post-title">No posts found, let's start write one! :)</h2>
+                <h2 class="post-title">No posts found, let's write one! :)</h2>
             </article>
             <?php
         }
-        else{
+        else
+        {
             foreach ($posts as $post)
             {
                 ?>

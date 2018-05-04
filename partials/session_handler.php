@@ -1,9 +1,11 @@
 <?php 
     require_once 'session_start.php';
-    //Borrowed from the internet, timeout session
+
+    //Borrowed from the internet, timeout session, comments are mine tho!
     //Get the time from the server and then set how long it should take before user is logged out
     $time = $_SERVER['REQUEST_TIME'];
     $timeout_duration = 1800;
+
     //check if a user in loggedin, else it will redirect to index
     //this is to make sure that unauthorized people trying to reach partial files directly through
     //their browser will not be able to do so. Not the best way, but it's something.
