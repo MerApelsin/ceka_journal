@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <title>Welcome to Journal</title>
     </head>
-    <body>
+    <body class="index">
         <?php
             if (isset($_GET["message"])) {
         ?>  
@@ -27,28 +27,24 @@
             }
             if (!isset($_SESSION["loggedIn"])): 
         ?>
-        <section>
-            <div class="form-title">
-                <h4>Register user</h4>
-            </div><br>
+        <section class="border">
             <form action="partials/register_user.php" method="POST" class="form-container">
-                <label for="username" class="form-title">Username</label>
-                <input class="form-field" type="text" name="username" id="username">
-                <label for="password" class="form-title">Password</label>
+                <h4 class="form-title">Register user</h4>
+                <label for="username" class="form-title">Username</label><br>
+                <input class="form-field" type="text" name="username" id="username"><br>
+                <label for="password" class="form-title">Password</label><br>
                 <input class="form-field" type="password" name="password" id="password">
                 <div class="submit-container">
                     <input class="submit-button" type="submit" value="Register">
                 </div>
             </form><br>
         </section>
-        <section>
-            <div class="form-title">
-                <h4>Login</h4>
-            </div><br>
+        <section class="border">
             <form action="partials/login.php" method="POST" class="form-container">
-                <label for="username" class="form-title">Username</label>
-                <input class="form-field" type="text" name="username" id="username">
-                <label for="password" class="form-title">Password</label>
+                <h4 class="form-title">Login</h4>
+                <label for="username" class="form-title">Username</label><br>
+                <input class="form-field" type="text" name="username" id="username"><br>
+                <label for="password" class="form-title">Password</label><br>
                 <input class="form-field" type="password" name="password" id="password">
                 <div class="submit-container">
                     <input class="submit-button" type="submit" value="Login">

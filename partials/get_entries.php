@@ -34,7 +34,7 @@
         {
             ?>
             <article>
-                <h2 class="post-title">No post found, let's start writing one! :)</h2>
+                <h2 class="post-title">No posts found, let's start write one! :)</h2>
             </article>
             <?php
         }

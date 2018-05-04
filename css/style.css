@@ -4,11 +4,22 @@ body
     width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 0;
     margin: 0;
-    background-color: #e3eef4;
+    
 }
+
+p
+{
+    font-family: helvetica, serif;
+}
+
+.index
+{
+    text-align: center;
+}
+
 section, .text-handler
 {
     width: 80%;
@@ -17,7 +28,7 @@ section, .text-handler
 
 nav
 {
-    width: 70%;
+    /*width: 70%;*/
     margin: 0.7rem 0rem 0.7rem 0;
     padding: 0.7rem 0 0.7rem 0;
     text-align: center;
@@ -25,24 +36,22 @@ nav
 
 article
 {
-    width: 80%;
+    width: 60%;
     text-align: center;
     margin: auto;
-    
-    
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
 }
 
 li 
 {
     padding: 0.3rem;
     display: inline;
+    font-family: Helvetica, Arial, Sans-Serif;
 }
 
 .entry-post
@@ -52,14 +61,47 @@ li
     border-radius: 6px;
     margin: 0.4rem;
     padding: 1.5rem;
-    width: 50%;
+    /*width: 50%;*/
+    -webkit-box-shadow: 9px 9px 8px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 9px 8px -7px rgba(0,0,0,0.75);
+    box-shadow: 9px 9px 8px -7px rgba(0,0,0,0.75); 
 }
 .post-title
 {
     padding: 0;
     margin: 0;
+    font-family: helvetica, serif;
 }
 
+.time 
+{
+    font-family: Times New Roman, Times, serif;
+    font-style: italic;
+}
+
+.content
+{
+    padding-bottom: 0.5rem;
+}
+
+.goback
+{
+    text-align: center;
+    width: auto;
+}
+
+.border
+{
+    margin-top: 1rem;
+    border: 1px solid #5383fc;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+    -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+    box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+
+}
 /* Generated with the help of the internet */
 .button {
     border-top: 1px solid #96d1f8;
@@ -90,6 +132,11 @@ li
     background: #1b435e;
 }
 
+section 
+{
+    max-width: 90%;
+    min-width: 50%;
+}
 /*The delete "button"*/
 .button-del 
 {
@@ -124,7 +171,7 @@ li
 }
 
 .form-container {
-    border: 1px solid #5383fc;
+    
     background: #ffffff;
     background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
     background: -webkit-linear-gradient(top, #ffffff, #ffffff);
@@ -132,18 +179,13 @@ li
     background: -ms-linear-gradient(top, #ffffff, #ffffff);
     background: -o-linear-gradient(top, #ffffff, #ffffff);
     background-image: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
-    -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
-    box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
     font-family: 'Helvetica Neue',Helvetica,sans-serif;
     text-decoration: none;
     vertical-align: middle;
     min-width:300px;
     padding:20px;
-    width:300px;
+    width:auto;
+    text-align: center;
     }
  .form-field {
     border: 1px solid #5383fc;
@@ -171,7 +213,7 @@ li
     }
  .submit-container {
     margin:8px 0;
-    text-align:right;
+    text-align:center;
     }
  .submit-button {
     border: 1px solid #fbfff7;
@@ -219,4 +261,29 @@ li
     background: -o-linear-gradient(top, #1b435e, #1b435e);
     background-image: -ms-linear-gradient(top, #1b435e 0%, #1b435e 100%);
     color: #fff;
+    }
+
+    /* Screen fit */
+
+    @media all and (max-width: 600px)
+    {
+        li 
+        {
+            display: block;
+        }
+
+        article
+        {
+            width: 90%;
+        }
+        
+        .form-container, .form-field 
+        {
+            width: 80%;
+        }
+
+        .form-container 
+        {
+            min-width: auto;
+        }
     }
