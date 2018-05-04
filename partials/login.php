@@ -17,8 +17,7 @@ $user = $checkUser->fetch();
 //if password == password, login success
 if(password_verify($_POST["password"],$user["password"]))
 {   
-    //header('Location: /index.php');
-    header('Location: /partials/get_entries.php');
+    header('Location: get_entries.php');
     $_SESSION["loggedIn"] = true;
     $_SESSION["username"] = $user["username"];
     $_SESSION["thisID"] =  $user["userID"];
@@ -26,7 +25,7 @@ if(password_verify($_POST["password"],$user["password"]))
 //else they've failed and we'll tell 'em so.
 else
 {
-    header('Location: /index.php?message=login failed');
+    header('Location: ../index.php?message=login failed');
 }
 
 

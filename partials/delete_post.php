@@ -3,7 +3,7 @@
     require_once 'session_handler.php';
 
     //send the user "back" to all the entries 
-    header('Location: /partials/get_entries.php');
+    header('Location: get_entries.php');
 
     //Fetch the ID from the query
     if (isset($_GET["deleteID"])) 

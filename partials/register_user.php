@@ -17,7 +17,7 @@ $user = $userExist->fetch();
 //if user don't exist - create
 if($user == 0) 
 {
-  header('Location: /index.php?message=register complete');
+  header('Location: ../index.php?message=register complete');
   $statement = $db->prepare(
     'INSERT INTO users (username, password)
     VALUES (:username, :password)'
@@ -30,7 +30,7 @@ if($user == 0)
 //else give "error"
 else 
 {
-  header('Location: /index.php?message=user already exists');
+  header('Location: ../index.php?message=user already exists');
 }
 
 ?>

@@ -8,15 +8,15 @@
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
         <title>Your entries</title>
     </head>
     <body>
         <nav>
             <ul>
                 <li>Welcome <?=$_SESSION["username"]?>!</li>
-                <li><a href="/partials/logout.php" class="button">Log out</a></li>
-                <li><a href="/partials/text_handler.php?status=new" class="button">Create new post</a></li>
+                <li><a href="logout.php" class="button">Log out</a></li>
+                <li><a href="text_handler.php?status=new" class="button">Create new post</a></li>
             </ul>
         </nav>
         <?php
@@ -48,8 +48,8 @@
                         <h4 class="time">Created at: <?= $post["createdAt"] ?></h4>
                         <p class="content"><?= $post["content"] ?></p>
                         <ul>
-                            <li><a class="button" href="/partials/text_handler.php?status=edit&postID=<?= $post["entryID"] ?>">Edit post</a></li>
-                            <li><a class="button-del" href="/partials/delete_post.php?deleteID=<?= $post["entryID"] ?>">Delete post</a></li>
+                            <li><a class="button" href="text_handler.php?status=edit&postID=<?= $post["entryID"] ?>">Edit post</a></li>
+                            <li><a class="button-del" href="delete_post.php?deleteID=<?= $post["entryID"] ?>">Delete post</a></li>
                         </ul>
                     </div>
                 </article>

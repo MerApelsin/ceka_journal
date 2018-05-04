@@ -10,7 +10,7 @@
     //it could be in its own file - but since both need session and to not have 'extra' session I put them both here.
     if (!isset($_SESSION["loggedIn"]))
     {
-        header('Location: /index.php?message=not logged in');
+        header('Location: ../index.php?message=not logged in');
     }
     else
     {
@@ -21,7 +21,7 @@
                 //if it exist + expired -> remove session, destroy it and redirect to index with msg
                 session_unset();
                 session_destroy();
-                header('Location: /index.php?message=logged out for inactivity');
+                header('Location: ../index.php?message=logged out for inactivity');
             }
             //sets activity, makes it so that it should update too and not be 'hardcoded x min'
         $_SESSION['LAST_ACTIVITY'] = $time;

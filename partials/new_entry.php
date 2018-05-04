@@ -2,7 +2,7 @@
     require_once 'database.php';
     require_once 'session_handler.php';
 
-    header('Location: /partials/get_entries.php');
+    header('Location: get_entries.php');
 
     //get the current userID for tying the entrie to the user
     $userID = $_SESSION["thisID"];
